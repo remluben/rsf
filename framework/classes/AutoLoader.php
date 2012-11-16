@@ -20,7 +20,9 @@ class AutoLoader
 
     public function __construct(array $paths = array())
     {
-        $this->_paths = $paths;
+        foreach($paths as $path) {
+            $this->addPath($path);
+        }
     }
 
     /**
