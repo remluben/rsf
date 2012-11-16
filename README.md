@@ -16,5 +16,4 @@ TODO
 ====
 
 * PHPUnit tests
-* Improve the framework AutoLoader class, so framework class directories do not have to be added manually within examples
 * Improve README and documentation
