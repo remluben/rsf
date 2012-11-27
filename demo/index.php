@@ -17,6 +17,11 @@
 
 require_once 'bootstrap.php';
 
+$registry->get('AutoLoader')->addPath(__APP_PATH . 'classes/')
+                            ->addPath(__APP_PATH . 'commands/')
+                            ->addPath(__APP_PATH . 'filters/')
+                            ->addPath(__APP_PATH . 'helpers/');
+
 // if running on a local lampp, set IP adress to 127.0.0.1 in order to block
 // yourself
 $ipCheckHandler = new IpCheckHandler($registry, array('127.0.0.2'));

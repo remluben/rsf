@@ -7,13 +7,14 @@
  * When bootstrapping your application, after this file has been included, the
  * following objects and variables are available:
  * - constants:
- *   > __ROOT_PATH
- *   > __APP_PATH
- *   > __FW_PATH
+ *   > __ROOT_PATH - the root path
+ *   > __APP_PATH - the application path
+ *   > __FW_PATH - the framework path
  * - $registry - the Registry
  * - $registry->getRequest() - the HttpRequest
  * - $registry->getResponse() - the HttpResponse
  * - $registry->get('EventDispatcher') - the EventDispatcher
+ * - $registry->get('AutoLoader') - the AutoLoader
  *
  * @package demo
  * @author Benjamin Ulmer
@@ -34,10 +35,6 @@ $loader = new AutoLoader(array(
         __FW_PATH . 'events/',
         __FW_PATH . 'http/',
         __FW_PATH . 'interface/',
-        __APP_PATH . 'classes/',
-        __APP_PATH . 'commands/',
-        __APP_PATH . 'filters/',
-        __APP_PATH . 'helpers/',
 ));
 
 spl_autoload_register(array($loader, 'load'));
@@ -49,3 +46,4 @@ $registry = new Registry();
 $registry->setRequest($request);
 $registry->setResponse($response);
 $registry->set('EventDispatcher', $dispatcher);
+$registry->set('AutoLoader', $loader);
