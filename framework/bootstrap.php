@@ -50,7 +50,7 @@ spl_autoload_register(array($loader, 'load'));
 $dispatcher = EventDispatcher::getInstance();
 $request = new HttpRequest();
 $response = new HttpResponse();
-$registry = new Registry();
+$registry = Registry::getInstance();
 $registry->setRequest($request);
 $registry->setResponse($response);
 $registry->set('EventDispatcher', $dispatcher);

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A simple registry object
+ * A simple registry object singleton.
  *
  * @package classes
  * @author Benjamin Ulmer
@@ -13,7 +13,34 @@ class Registry
     const KEY_REQUEST = 'request';
     const KEY_RESPONSE = 'response';
 
+    private static $_instance = null;
     private $_values = array();
+
+    /**
+     * @return Registry
+     */
+    public static function getInstance()
+    {
+        if (self::$_instance === null) {
+            self::$_instance = new Registry();
+        }
+        return self::$_instance;
+    }
+
+    /**
+     * Registry object can not be created using the 'new' keyword.
+     * @see Registry::getInstance()
+     */
+    private function __construct() {}
+
+    /**
+     * Registry object can not be cloned using the 'clone' keyword
+     * @throws Excpetion
+     */
+    public function __clone()
+    {
+        throw Excpetion('Can not clone the Registry object.');
+    }
 
     public function get($key)
     {

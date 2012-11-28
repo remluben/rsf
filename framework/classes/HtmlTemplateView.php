@@ -3,6 +3,8 @@
 /**
  * HTML template view object, with view helper functions.
  *
+ * Naming convention for ViewHelper classes: MyFuncViewHelper
+ *
  * From within the loaded template all assigned variables are available as
  * $this->varname and available view helpers can be used by calling
  * $this->myfunc ( myfunc refers to the view helper object of type
